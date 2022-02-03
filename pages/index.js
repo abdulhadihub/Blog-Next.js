@@ -9,7 +9,7 @@ export default function Home({ posts }) {
     <>
       <div className="container mx-auto px-10 mb-8">
         <Head>
-          <title>CMS Blog</title>
+          <title>Abdul Hadi | CMS Blog</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <FeaturedPosts />
