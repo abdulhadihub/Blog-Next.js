@@ -21,15 +21,34 @@ const Navbar = () => {
                 </button> */}
                 <div className="nav_menu" id="navbarCollapse">
                     <div className="nav_menu_list">
-                        <Link href="/"><span className="nav_item">Home</span></Link>
-                        <Link href="/"><span className="nav_item">About</span></Link>
-                        {categories.map((category) => (
-                            <Link key={category.slug} href={`/category/${category.slug}`}>
-                                <span className="nav_item active">
-                                    {category.name}
-                                </span>
-                            </Link>
-                        ))}
+                        <ul>
+
+                            <li><Link href="/"><span className="nav_item active">Home</span></Link></li>
+                            <li><Link href="/"><span className="nav_item">About</span></Link></li>
+                            <li><span className="nav_item drop_down">Categories</span>
+                                <ul>
+                                    {categories.map((category) => (
+                                        <li><Link key={category.slug} href={`/category/${category.slug}`}>
+                                            <span className="">
+                                                {category.name}
+                                            </span>
+                                        </Link></li>
+                                    ))}
+                                </ul>
+                            </li>
+                            {categories.map((category) => (
+                                <li><Link key={category.slug} href={`/category/${category.slug}`}>
+                                    <span className="nav_item drop_down">
+                                        {category.name}
+                                    </span>
+                                </Link>
+                                    <ul>
+                                        <li><Link href="/"><span className="">item-1</span></Link></li>
+                                        <li><Link href="/"><span className="">item-2</span></Link></li>
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </nav>

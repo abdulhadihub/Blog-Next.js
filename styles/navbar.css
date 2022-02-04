@@ -71,3 +71,49 @@ div.nav_menu_list{
 .nav_item:hover{
     color: #0BCEAF;
 }
+
+nav ul{
+    position: relative;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+nav ul ul{
+    position: absolute;
+    top: 60px;
+    background-color: white;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+}
+
+nav ul li:hover > ul{
+    opacity: 1;
+    visibility: visible;
+}
+
+nav ul ul li{
+    position: relative;
+    margin: 0;
+    width: 150px;
+    display: list-item;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0 0 2px 0 #2f3237;
+    transition: all 0.3s
+}
+
+nav ul ul li:hover{
+    background-color: #cfece7;
+}
+
+.drop_down:hover{
+    color: black;
+}
+
+.fa-angle-down{
+    font-size: 15px;
+    color: black;
+}
