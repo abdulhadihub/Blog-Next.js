@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getCategories } from '../services'
 
-
 const Navbar = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getCategories()
             .then((newCategories) => setCategories(newCategories))
     }, []);
+
 
     return (
         <>
@@ -18,10 +18,10 @@ const Navbar = () => {
                         <h1 className="logo_text"><span className="text_primary">Abdul</span>Hadi</h1>
                     </Link>
                 </div>
-                <div className="menu_icons">
+                {/* <div className="menu_icons">
                     <i className="fas fa-bars"></i>
                     <i className="fas fa-times"></i>
-                </div>
+                </div> */}
                 <div className="nav_menu" id="navbarCollapse">
                     <div className="nav_menu_list">
                         <ul>
@@ -32,7 +32,7 @@ const Navbar = () => {
                                     {categories.map((category) => (
                                         <li><Link key={category.slug} href={`/category/${category.slug}`}>
                                             <span className="">
-                                                {category.name}<i className="fas fa-angle-down"></i>
+                                                {category.name}
                                             </span>
                                         </Link>
                                             <ul className='sub_menu'>
