@@ -89,15 +89,10 @@ nav ul ul{
     visibility: hidden;
 }
 
-nav ul li:hover > ul{
-    opacity: 1;
-    visibility: visible;
-}
-
 nav ul ul li{
     position: relative;
     margin: 0;
-    width: 150px;
+    width: 170px;
     display: list-item;
     cursor: pointer;
     padding: 10px;
@@ -109,11 +104,114 @@ nav ul ul li:hover{
     background-color: #cfece7;
 }
 
-.drop_down:hover{
+.dropdown:hover{
     color: black;
 }
 
 .fa-angle-down{
-    font-size: 15px;
-    color: black;
+    padding: 5px;
+}
+
+.menu_icons{
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 99;
+    cursor: pointer;
+    display: none;
+}
+
+.sub_menu{
+    display: block;
+    position: absolute;
+    z-index: 100;
+    transition: all 650ms ease;
+    top: unset;
+}
+
+.sub_menu::before{
+    content: "";
+    position: absolute;
+}
+
+.sub_menu .sub_menu::before{
+    top: 9px;
+    left: -25px;
+    border: 12px solid transparent;
+    border-right-color: #0BCEAF;
+}
+
+.sub_menu .sub_menu{
+    border-top: none;
+    border-left: 3px solid #0BCEAF;
+    top: 0;
+    left: 160%;
+}
+
+.nav_menu_list li:hover > .sub_menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub_menu li:hover > .sub_menu{
+    left: 100%;
+}
+
+.dropdown_items{
+    padding: 0;
+}
+
+@media screen and (max-width: 900px) {
+
+    nav.nav_container {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 680px){
+    /* .sub_menu{
+        position: initial;
+        border: 3px solid transparent;
+        border-left-color: #0BCEAF;
+        margin-left: 10px;
+        max-height: 0;
+    }
+
+    .sub_menu::before{
+        display: none;
+    }
+    
+    .nav_menu_list li:hover > .sub_menu{
+        opacity: 1;
+        visibility: visible;
+        max-height: initial;
+    }
+    
+    .menu_icons{
+        display: block;
+    }
+    
+    .fa-times{
+        display: none;
+    }
+    
+    nav.active .fa-times{
+        display: block;
+    }
+    
+    nav.active .fa-bars{
+        display: none;
+    }
+    
+    nav.active .nav_menu_list{
+      display: flex;
+    }   */
+
+    .logo_text{
+        display: none;
+    }
+
 }
