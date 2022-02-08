@@ -9,21 +9,32 @@ const Navbar = () => {
             .then((newCategories) => setCategories(newCategories))
     }, []);
 
+    const [state, setState] = useState(false);
+    let toggleActive = () => {
+        setState(!state);
+    }
+    let addListClass = state ? "toggle_menu" : "";
+    let menuListClass = `nav_menu_list ${addListClass}`;
+
+    let addNavClass = state ? "shown" : ""
+    let navClass = `nav_container ${addNavClass}`
 
     return (
         <>
-            <nav className="nav_container">
+            <nav className={navClass}>
                 <div className="link_container">
                     <Link href="/">
-                        <h1 className="logo_text"><span className="text_primary">Abdul</span>Hadi</h1>
+                        <a>
+                            <h1 className="logo_text"><span className="text_primary">Abdul</span>Hadi</h1>
+                        </a>
                     </Link>
                 </div>
-                {/* <div className="menu_icons">
+                <div className="menu_icons" onClick={toggleActive}>
                     <i className="fas fa-bars"></i>
                     <i className="fas fa-times"></i>
-                </div> */}
+                </div>
                 <div className="nav_menu" id="navbarCollapse">
-                    <div className="nav_menu_list">
+                    <div className={menuListClass}>
                         <ul>
                             <li><Link href="/"><span className="nav_item active">Home</span></Link></li>
                             <li><Link href="/"><span className="nav_item">About</span></Link></li>
@@ -31,9 +42,11 @@ const Navbar = () => {
                                 <ul className='sub_menu'>
                                     {categories.map((category) => (
                                         <li><Link key={category.slug} href={`/category/${category.slug}`}>
-                                            <span className="">
-                                                {category.name}
-                                            </span>
+                                            <a>
+                                                <span className="">
+                                                    {category.name}
+                                                </span>
+                                            </a>
                                         </Link>
                                             <ul className='sub_menu'>
                                                 <li><Link href="/"><span className="nav_item dropdown_items dropdown">item-1</span></Link></li>

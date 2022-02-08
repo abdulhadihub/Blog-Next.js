@@ -97,11 +97,12 @@ nav ul ul li:hover{
 }
 
 .menu_icons{
+    color: #0BCEAF;
     font-size: 40px;
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
     right: 20px;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     z-index: 99;
     cursor: pointer;
     display: none;
@@ -191,17 +192,21 @@ nav ul ul li:hover{
         display: none;
     }
     
-    nav.active .fa-times{
+    nav.shown .fa-times{
         display: block;
     }
     
-    nav.active .fa-bars{
+    nav.shown .fa-bars{
         display: none;
     }
     
-    nav.active .nav_menu_list{
-      display: flex;
+     .nav_menu_list{
+      display: none;
     }  
+
+    .toggle_menu{
+        display: flex;
+    }
 
     .logo_text{
         display: inline-block;

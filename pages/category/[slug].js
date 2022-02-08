@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-
 import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Categories, Loader } from '../../components';
+import Head from 'next/head'
 
 const CategoryPost = ({ posts }) => {
     const router = useRouter();
@@ -13,6 +13,11 @@ const CategoryPost = ({ posts }) => {
 
     return (
         <div className="container mx-auto px-10 my-8">
+            <Head>
+                <title>Abdul Hadi | CMS Blog</title>
+                <link rel="icon" href="/favicon.ico" />
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+            </Head>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="col-span-1 lg:col-span-8">
                     {posts.map((post, index) => (
