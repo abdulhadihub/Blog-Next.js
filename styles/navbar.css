@@ -80,7 +80,7 @@ nav ul ul li{
     display: list-item;
     cursor: pointer;
     padding: 10px;
-    box-shadow: 0 0 2px 0 #2f3237;
+    /* box-shadow: 0 0 2px 0 #2f3237; */
     transition: all 0.3s
 }
 

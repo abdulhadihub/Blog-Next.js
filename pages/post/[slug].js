@@ -14,7 +14,7 @@ const PostDetails = ({ post }) => {
     return (
         <div className='container mx-auto px-10 my-8'>
             <Head>
-                <title>Abdul Hadi | CMS Blog</title>
+                <title>Abdul Hadi | Blog</title>
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
             </Head>

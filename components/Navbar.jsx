@@ -9,6 +9,7 @@ const Navbar = () => {
             .then((newCategories) => setCategories(newCategories))
     }, []);
 
+    // Burger Menu Toggle
     const [state, setState] = useState(false);
     let toggleActive = () => {
         setState(!state);
@@ -56,21 +57,21 @@ const Navbar = () => {
                                     ))}
                                 </ul>
                             </li>
-                            {categories.map((category) => (
+                            {/* {categories.map((category) => (
                                 <li><Link key={category.slug} href={`/category/${category.slug}`}>
                                     <span className="nav_item drop_down">
                                         {category.name}
                                     </span>
                                 </Link>
                                     <ul>
-                                        {/* {relatedPosts.map((post) => (
+                                        {relatedPosts.map((post) => (
                                             <li><Link href={`/post/${post.slug}`} key={post.title} className="">
                                                 <span> {post.title}</span>
                                             </Link></li>
-                                        ))} */}
+                                        ))}
                                     </ul>
                                 </li>
-                            ))}
+                            ))} */}
                         </ul>
                     </div>
                 </div>
