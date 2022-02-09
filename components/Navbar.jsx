@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getCategories } from '../services'
+import { getRecentPosts, getSimilarPosts } from '../services'
 
-const Navbar = () => {
+
+
+const Navbar = ({ slug }) => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getCategories()
             .then((newCategories) => setCategories(newCategories))
     }, []);
+
+    const [relatedPosts, setRelatedPosts] = useState([]);
+    useEffect(() => {
+        if (slug) {
+            getSimilarPosts(categories, slug)
+                .then((result) => setRelatedPosts(result))
+        } else {
+            getRecentPosts()
+                .then((result) => setRelatedPosts(result))
+        }
+    }, [slug])
 
     // Burger Menu Toggle
     const [state, setState] = useState(false);
@@ -50,8 +64,17 @@ const Navbar = () => {
                                             </a>
                                         </Link>
                                             <ul className='sub_menu'>
-                                                <li><Link href="/"><span className="nav_item dropdown_items dropdown">item-1</span></Link></li>
-                                                <li><Link href="/"><span className="nav_item dropdown_items dropdown">item-2</span></Link></li>
+                                                {relatedPosts.map((post) => (
+                                                    <li>
+                                                        <Link key={post.title} href={`/post/${post.slug}`}>
+                                                            <a>
+                                                                <span className="">
+                                                                    {post.title}
+                                                                </span>
+                                                            </a>
+                                                        </Link>
+                                                    </li>
+                                                ))}
                                             </ul>
                                         </li>
                                     ))}
