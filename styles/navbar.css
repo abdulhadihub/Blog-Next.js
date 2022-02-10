@@ -5,7 +5,6 @@ nav.nav_container{
     z-index: 1030;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    /* position: fixed; */
 }
 
 .link_container{
@@ -160,10 +159,10 @@ nav ul ul li:hover{
 }
 
 @media screen and (max-width: 680px){
-  .nav_menu_list{
-      /* display: none; */
-      /* overflow-y: scroll; */
-  }  
+  /* .nav_menu_list{
+      display: none;
+      overflow-y: scroll;
+  }   */
     
     .sub_menu{
         position: initial;
